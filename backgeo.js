@@ -15,7 +15,7 @@ define(['underscore', 'jquery'], function(_, $) {
                 $deferred.reject();
             }
             if ($deferred.isRejected()) {
-                return $deferred;
+                return $deferred.promise();
             }
             var success = options.success, 
                 wrappedSuccess = function(position) {
@@ -41,7 +41,7 @@ define(['underscore', 'jquery'], function(_, $) {
             delete options.success;
             delete options.error;
             navigator.geolocation.getCurrentPosition(wrappedSuccess, wrappedError, option);
-            return $deferred;
+            return $deferred.promise();
         }       
     };
 });
