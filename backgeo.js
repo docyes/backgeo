@@ -1,7 +1,7 @@
-define(function() {
+define(['underscore', 'jquery'], function(_, $) {
     return {
         sync: function(method, model, options) {
-            var $deferred = Deferred();
+            var $deferred = $.Deferred();
             _.defaults(options || (options = {}), {
                 enableHighAccuracy: true,
                 maximumAge: 0
