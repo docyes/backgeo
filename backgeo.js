@@ -19,7 +19,18 @@ define(function() {
             }
             var success = options.success, 
                 wrappedSuccess = function(position) {
-                    success(position);
+                    var coords = position.coords,
+                        resp = {
+                        latitude: coords.latitude,
+                        longitude: coords.longitude,
+                        altitude: coords.altitude,
+                        accuracy: coords.accuracy,
+                        altitudeAccuracy: coords.altitudeAccuracy,
+                        heading: coords.heading,
+                        speed: coords.speed,
+                        timestamp: position.timestamp
+                    };
+                    success(resp);
                     $deferred.resolve();
                 },
                 error = options.error,
