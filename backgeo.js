@@ -7,7 +7,7 @@ define(['underscore', 'jquery'], function(_, $) {
                 maximumAge: 0
             });
             if (method !== 'read') {
-                options.error(code: 0.1, message: 'Geolocation method ' + method + ' not supported.'});
+                options.error({code: 0.1, message: 'Geolocation method ' + method + ' not supported.'});
                 $deferred.reject();
             }
             if (!!navigator.geolocation) {
